@@ -31,4 +31,5 @@ void ssort(int * arr, int size) {
 		arr[i] = arr[bigdex];
 		arr[bigdex] = temp;
 		}
+	#endif
 	}
