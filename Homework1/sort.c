@@ -5,27 +5,30 @@
 void ssort(int * arr, int size) {
 	/* For step 3, fill this in to perform a selection sort
 	   For step 4, add conditional compilation flags to perform an ascending selection sort instead */
-	if (size <= 1) {
-		return;
-	}
 
-	for (int i = 0; i < size - 1; i++) {
-		int best = i;
-		for (int j = i + 1; j < size; j++) {
-#ifdef ASCENDING
-			if (arr[j] < arr[best]) {
-				best = j;
+	#ifdef ASCENDING
+	for(int i = 0; i < (size -1); i++) {
+		int lildex = i;
+		for(int j = i + 1; j < size; j++) {
+			if(arr[lildex] > arr[j]) {
+				lildex = j;
 			}
-#else
-			if (arr[j] > arr[best]) {
-				best = j;
-			}
-#endif
 		}
-		if (best != i) {
-			int tmp = arr[i];
-			arr[i] = arr[best];
-			arr[best] = tmp;
+		int temp = arr[i];
+		arr[i] = arr[lildex];
+		arr[lildex] = temp;
+		}
+
+	#else
+	for(int i = 0; i < (size -1); i++) {
+		int bigdex = i;
+		for(int j = i + 1; j < size; j++) {
+			if(arr[bigdex] < arr[j]) {
+				bigdex = j;
+			}
+		}
+		int temp = arr[i];
+		arr[i] = arr[bigdex];
+		arr[bigdex] = temp;
 		}
 	}
-}
