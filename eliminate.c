@@ -35,7 +35,7 @@ void eliminate(int n, int k)
   while(pplplaying > 1) {
     count = 0;
     while(count < k) {
-      if(arr[index] != 'X') {
+      if(arr[index] != -1) {
         count++;
         saveidx = index;
       }
@@ -45,11 +45,11 @@ void eliminate(int n, int k)
       }
     }
     printf("%d\n", arr[saveidx]);
-    arr[saveidx] = 'X';
+    arr[saveidx] = -1;
     pplplaying--;
   }
   for(int i = 0; i < n; i++) {
-    if(arr[i] != 'X') {
+    if(arr[i] != -1) {
       printf("%d", arr[i]);
     }
   }
